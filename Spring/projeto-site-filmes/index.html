@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo de filmes</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo">🎬 Catálogo SENAI</div>
+        <button class="btn primary" onclick="abrirFormulario()">+ Novo Filme</button>
+    </header>
+
+    <main class="content">
+        <div id="movieList" class="grid-container"> </div>
+    </main>
+
+    <div id="formModal" class="modal hidden">
+        <div class="modal-card">
+            <h2>Cadastro Filme</h2>
+            <form id="movieForm">
+                <label>Título</label>
+			<input type="text" id="titulo" required>
+
+            <label>Gênero</label>
+            <div class="input-row">
+                <select id="generoSelect"> </select>
+                <button onclick="abrirModalGenero()">+</button>
+            </div>
+
+			<label>Ano</label>
+			<input type="number" id="ano" min="1888">
+
+			<label>Diretor</label>
+			<input type="text" id="diretor">
+
+			<label> URL da Capa</label>
+			<input type="text" id="capaUrl" placeholder="https://exemplo.com/capa.jpg">
+
+            <div class="botao">
+                <button type="button" class="btn primary" onclick="salvarFilme()">Salvar</button>
+                <button type="button" class="btn" onclick="fecharFormulario()">Cancelar</button>
+            </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div id="modalGenero" class="modal hidden">
+        <div class="card-modall"></div>
+            <h2>Cadastro de Gênero</h2>
+            <label>Nome</label>
+            <input type="text" id="NovoGenero" required>
+             <div class="botao">
+                <button type="button" class="btn primary" onclick="salvarGenero()">Salvar</button>
+                <button type="button" class="btn" onclick="fecharModalGenero()">Cancelar</button>
+            </div>
+    </body>
+
+    <script src="./script/script.js"></script>
+    <script>listar()</script>
+</body>
+</html>
